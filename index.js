@@ -1,4 +1,4 @@
-import { words } from './dictionary-ro.js'
+import { words } from './dictionary.js'
 
 const guessGrid = document.querySelector('.guess-grid'),
       alertContainer = document.querySelector('.alert-container'),
@@ -115,7 +115,7 @@ function submitGuess() {
     const activeTiles = [...getActiveTiles()]
 
     if (activeTiles.length !== WORD_LENGTH) {
-        showAlert('Cuvantul introdus nu are suficiente litere')
+        showAlert('Not enough letters')
         shakeTiles(activeTiles)
         return
     }
@@ -125,7 +125,7 @@ function submitGuess() {
     }, '')
 
     if (!words.includes(guess)) {
-        showAlert('Cuvantul nu se afla in dictionarul aplicatiei')
+        showAlert('Word is not in the dictionary')
         shakeTiles(activeTiles)
         return
     }
@@ -167,7 +167,7 @@ function flipTile(tile, index, array, guess) {
 
 function checkWinLose(guess, tiles) {
     if (guess === targetWord) {
-        showAlert('FELICITARI! Ai castigat!', 5000)
+        showAlert('CONGRATS! You won!', 5000)
         danceTiles(tiles)
         stopInteraction()
         return
@@ -176,7 +176,7 @@ function checkWinLose(guess, tiles) {
     const remainingTiles = guessGrid.querySelectorAll(':not([data-letter])')
     
     if (!remainingTiles.length) {
-        showAlert(`Ai pierdut :( Cuvantul era: ${targetWord.toUpperCase()}`, null)
+        showAlert(`You lost! Word was: ${targetWord.toUpperCase()}`, null)
         stopInteraction()
     }
 }
