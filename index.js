@@ -1,4 +1,4 @@
-import { words } from './dictionary.js'
+import { words } from './dictionary-ro.js'
 
 const guessGrid = document.querySelector('.guess-grid'),
       alertContainer = document.querySelector('.alert-container'),
