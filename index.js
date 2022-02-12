@@ -224,3 +224,5 @@ createKeyboard()
 createGrid()
 
 startInteraction()
+
+console.log(targetWord)
